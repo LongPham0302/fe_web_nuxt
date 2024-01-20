@@ -116,12 +116,12 @@
 </template>
 
 <script>
-import Slide from '../components/slide';
+import Slide from '../components/product';
 
 export default {
   name: 'MyComponent',
   components: {
-    Slide
+    Slide,
   },
   data() {
     return {
@@ -177,5 +177,6 @@ body {
 
 .layout {
   background-color: rgb(255, 244, 214);
+  padding-bottom: 50px;
 }
 </style>

@@ -4,7 +4,7 @@ module.exports = {
     '@/assets/css/tailwind.css',
     '@fortawesome/fontawesome-free/css/all.css',
   ],
-  buildModules: ['@nuxtjs/tailwindcss']
+  buildModules: ['@nuxtjs/tailwindcss',]
   ,
   /*
   ** Headers of the page

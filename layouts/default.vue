@@ -1,9 +1,19 @@
 <template>
   <div>
-    <nuxt/>
+    <nuxt />
+    <Fotter />
   </div>
 </template>
+<script>
+import Fotter from '../components/footer';
+export default {
+  name: 'Footer',
+  components: {
+    Fotter
+  },
+}
 
+</script>
 <style>
 html {
   font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -16,7 +26,9 @@ html {
   box-sizing: border-box;
 }
 
-*, *:before, *:after {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   margin: 0;
 }
