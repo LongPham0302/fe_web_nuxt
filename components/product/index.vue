@@ -1,6 +1,6 @@
 <template>
-    <div class="mx-auto">
-        <div class="flex items-center justify-between">
+    <div class="mx-auto pb-5 pl-2 pr-2 rounded border border-gray-300">
+        <div class="flex items-center justify-between mt-5">
             <div class="text-2xl font-bold ml-3">{{ title }}</div>
             <div class="flex gap-2 mr-2">
                 <button v-for="brand in brands" :key="brand"
@@ -13,7 +13,7 @@
                 </button>
             </div>
         </div>
-        <div class="max-w-6xl mx-auto mt-10">
+        <div class="max-w-6xl mx-auto mt-10 mb-5">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mt-10">
                 <!-- Loop through product data to generate cards -->
                 <div v-for="product in products" :key="product.id" class="bg-white p-4 rounded-md shadow-md">
@@ -32,7 +32,7 @@
   
 <script>
 export default {
-    name: "Slide",
+    name: "Product",
     data() {
         return {
             title: "LAPTOP",

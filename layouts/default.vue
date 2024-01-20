@@ -1,15 +1,19 @@
 <template>
   <div>
+    <Header />
     <nuxt />
     <Fotter />
   </div>
 </template>
 <script>
 import Fotter from '../components/footer';
+import Header from '../components/header';
+
 export default {
   name: 'Footer',
   components: {
-    Fotter
+    Fotter,
+    Header
   },
 }
 

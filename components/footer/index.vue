@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white text-gray-700" id="app">
+    <div class="bg-white text-gray-700" id="footer">
         <div class="container mx-auto px-4 py-8">
             <div class="grid grid-cols-4 gap-8">
                 <!-- Support Column -->
@@ -12,26 +12,6 @@
                         <strong>{{ item.text_strong }}</strong>
                         {{ item.text_after }}
                     </p>
-                    <div class="flex mt-4">
-                        <img alt="Payment method icon placeholder" class="h-8 mr-2" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-ONpCtKSh4sGvXSwsiXbgd6Bi.png?st=2024-01-20T11%3A12%3A02Z&amp;se=2024-01-20T13%3A12%3A02Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A42%3A01Z&amp;ske=2024-01-20T19%3A42%3A01Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=oY/t/ZwxM754k/rP5uoc6S8mNWv359SdQUkhJhR1zik%3D"
-                            width="32" />
-                        <img alt="Payment method icon placeholder" class="h-8 mr-2" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-ONpCtKSh4sGvXSwsiXbgd6Bi.png?st=2024-01-20T11%3A12%3A02Z&amp;se=2024-01-20T13%3A12%3A02Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A42%3A01Z&amp;ske=2024-01-20T19%3A42%3A01Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=oY/t/ZwxM754k/rP5uoc6S8mNWv359SdQUkhJhR1zik%3D"
-                            width="32" />
-                        <img alt="Payment method icon placeholder" class="h-8 mr-2" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-ONpCtKSh4sGvXSwsiXbgd6Bi.png?st=2024-01-20T11%3A12%3A02Z&amp;se=2024-01-20T13%3A12%3A02Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A42%3A01Z&amp;ske=2024-01-20T19%3A42%3A01Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=oY/t/ZwxM754k/rP5uoc6S8mNWv359SdQUkhJhR1zik%3D"
-                            width="32" />
-                        <img alt="Payment method icon placeholder" class="h-8 mr-2" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-ONpCtKSh4sGvXSwsiXbgd6Bi.png?st=2024-01-20T11%3A12%3A02Z&amp;se=2024-01-20T13%3A12%3A02Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A42%3A01Z&amp;ske=2024-01-20T19%3A42%3A01Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=oY/t/ZwxM754k/rP5uoc6S8mNWv359SdQUkhJhR1zik%3D"
-                            width="32" />
-                        <img alt="Payment method icon placeholder" class="h-8 mr-2" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-ONpCtKSh4sGvXSwsiXbgd6Bi.png?st=2024-01-20T11%3A12%3A02Z&amp;se=2024-01-20T13%3A12%3A02Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A42%3A01Z&amp;ske=2024-01-20T19%3A42%3A01Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=oY/t/ZwxM754k/rP5uoc6S8mNWv359SdQUkhJhR1zik%3D"
-                            width="32" />
-                        <img alt="Payment method icon placeholder" class="h-8" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-ONpCtKSh4sGvXSwsiXbgd6Bi.png?st=2024-01-20T11%3A12%3A02Z&amp;se=2024-01-20T13%3A12%3A02Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A42%3A01Z&amp;ske=2024-01-20T19%3A42%3A01Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=oY/t/ZwxM754k/rP5uoc6S8mNWv359SdQUkhJhR1zik%3D"
-                            width="32" />
-                    </div>
                 </div>
                 <!-- Policy Column -->
                 <div>
@@ -56,23 +36,6 @@
                     <h3 class="font-bold text-lg mb-3">
                         Kết nối với CellphoneS
                     </h3>
-                    <div class="flex mb-4">
-                        <img alt="Social media icon placeholder" class="h-8 mr-2" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-K0gFK2Dp2HtW2n1IWHJl6L4X.png?st=2024-01-20T11%3A12%3A01Z&amp;se=2024-01-20T13%3A12%3A01Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A40%3A00Z&amp;ske=2024-01-20T19%3A40%3A00Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=uPjX3hmyfu/%2B5lpFZ9zbMM4evwBMN4nL0SQLPk8jhSY%3D"
-                            width="32" />
-                        <img alt="Social media icon placeholder" class="h-8 mr-2" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-K0gFK2Dp2HtW2n1IWHJl6L4X.png?st=2024-01-20T11%3A12%3A01Z&amp;se=2024-01-20T13%3A12%3A01Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A40%3A00Z&amp;ske=2024-01-20T19%3A40%3A00Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=uPjX3hmyfu/%2B5lpFZ9zbMM4evwBMN4nL0SQLPk8jhSY%3D"
-                            width="32" />
-                        <img alt="Social media icon placeholder" class="h-8 mr-2" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-K0gFK2Dp2HtW2n1IWHJl6L4X.png?st=2024-01-20T11%3A12%3A01Z&amp;se=2024-01-20T13%3A12%3A01Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A40%3A00Z&amp;ske=2024-01-20T19%3A40%3A00Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=uPjX3hmyfu/%2B5lpFZ9zbMM4evwBMN4nL0SQLPk8jhSY%3D"
-                            width="32" />
-                        <img alt="Social media icon placeholder" class="h-8 mr-2" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-K0gFK2Dp2HtW2n1IWHJl6L4X.png?st=2024-01-20T11%3A12%3A01Z&amp;se=2024-01-20T13%3A12%3A01Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A40%3A00Z&amp;ske=2024-01-20T19%3A40%3A00Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=uPjX3hmyfu/%2B5lpFZ9zbMM4evwBMN4nL0SQLPk8jhSY%3D"
-                            width="32" />
-                        <img alt="Social media icon placeholder" class="h-8" height="32"
-                            src="https://oaidalleapiprodscus.blob.core.windows.net/private/org-GywSVnPF5dlK8wEBmo4wHXPk/user-2eIJ90LSiUcNyAEqvAEG0VWS/img-K0gFK2Dp2HtW2n1IWHJl6L4X.png?st=2024-01-20T11%3A12%3A01Z&amp;se=2024-01-20T13%3A12%3A01Z&amp;sp=r&amp;sv=2021-08-06&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=6aaadede-4fb3-4698-a8f6-684d7786b067&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2024-01-19T19%3A40%3A00Z&amp;ske=2024-01-20T19%3A40%3A00Z&amp;sks=b&amp;skv=2021-08-06&amp;sig=uPjX3hmyfu/%2B5lpFZ9zbMM4evwBMN4nL0SQLPk8jhSY%3D"
-                            width="32" />
-                    </div>
                     <h3 class="font-bold text-lg mb-3">
                         Website thành viên
                     </h3>
@@ -145,3 +108,9 @@ export default {
     },
 }
 </script>
+<style>
+#footer {
+    background-color: #34495e;
+    color: white;
+}
+</style>
