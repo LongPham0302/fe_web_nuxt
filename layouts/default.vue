@@ -6,8 +6,8 @@
   </div>
 </template>
 <script>
-import Fotter from '../components/footer';
-import Header from '../components/header';
+import Fotter from '@components/footer';
+import Header from '@components/header';
 
 export default {
   name: 'Footer',

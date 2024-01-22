@@ -1,4 +1,5 @@
 
+
 module.exports = {
   css: [
     '@/assets/css/tailwind.css',
@@ -6,6 +7,12 @@ module.exports = {
   ],
   buildModules: ['@nuxtjs/tailwindcss',]
   ,
+  alias: {
+    '@components': '~/components',
+    '@plugins': '~/plugins',
+    '@pages': '~/pages'
+
+  },
   /*
   ** Headers of the page
   */
@@ -17,6 +24,7 @@ module.exports = {
   ** Build configuration
   */
   build: {
+    standalone: true,
     /*
     ** Run ESLint on save
     */

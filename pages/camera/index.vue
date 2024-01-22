@@ -1,16 +1,16 @@
 <template>
-    <div class="mt-5 mb-5">
-        <Product />
-    </div>
+  <div class="mt-5 mb-5">
+    <CameraComponent />
+  </div>
 </template>
 
 <script>
-import Product from '../../components/product';
+import CameraComponent from "@components/client/camera";
 
 export default {
-    name: "Camera",
-    components: {
-        Product
-    }
-}
+  name: "CameraHome",
+  components: {
+    CameraComponent,
+  },
+};
 </script>
