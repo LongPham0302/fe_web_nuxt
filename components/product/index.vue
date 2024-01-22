@@ -21,7 +21,7 @@
                     <div class="text-xl font-bold mb-2">{{ product.name }}</div>
                     <div class="text-gray-600">{{ product.description }}</div>
                     <div class="mt-4 text-blue-500 font-semibold">{{ product.price }}</div>
-                    <button
+                    <button @click="redirectToProduct(product.id)"
                         class="mt-2 bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300">Buy
                         Now</button>
                 </div>
@@ -58,35 +58,35 @@ export default {
                     image: "https://cdn.tuoitre.vn/zoom/700_700/471584752817336320/2023/6/13/03-16866569815101672545124-16-10-534-1000-crop-16866570358101851702408.jpg",
                 },
                 {
-                    id: 1,
+                    id: 2,
                     name: "Product 1",
                     description: "Description of Product 1",
                     price: "$100",
                     image: "https://cdn.tuoitre.vn/zoom/700_700/471584752817336320/2023/6/13/03-16866569815101672545124-16-10-534-1000-crop-16866570358101851702408.jpg",
                 },
                 {
-                    id: 1,
+                    id: 3,
                     name: "Product 1",
                     description: "Description of Product 1",
                     price: "$100",
                     image: "https://cdn.tuoitre.vn/zoom/700_700/471584752817336320/2023/6/13/03-16866569815101672545124-16-10-534-1000-crop-16866570358101851702408.jpg",
                 },
                 {
-                    id: 1,
+                    id: 4,
                     name: "Product 1",
                     description: "Description of Product 1",
                     price: "$100",
                     image: "https://cdn.tuoitre.vn/zoom/700_700/471584752817336320/2023/6/13/03-16866569815101672545124-16-10-534-1000-crop-16866570358101851702408.jpg",
                 },
                 {
-                    id: 1,
+                    id: 5,
                     name: "Product 1",
                     description: "Description of Product 1",
                     price: "$100",
                     image: "https://cdn.tuoitre.vn/zoom/700_700/471584752817336320/2023/6/13/03-16866569815101672545124-16-10-534-1000-crop-16866570358101851702408.jpg",
                 },
                 {
-                    id: 1,
+                    id: 6,
                     name: "Product 1",
                     description: "Description of Product 1",
                     price: "$100",
@@ -95,6 +95,12 @@ export default {
             ]
         };
     },
+    methods: {
+        redirectToProduct(id) {
+            console.log("id",id);
+            this.$router.push(`/camera/${id}`);
+        }
+    }
 };
 </script>
   
