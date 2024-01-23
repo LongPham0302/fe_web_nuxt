@@ -6,7 +6,7 @@
           v-if="product.images"
           :src="mainImage"
           :alt="product.title"
-          class="fixed-size-image border-red-600"
+          class="fixed-size-image border-red-600 rounded-lg"
         />
         <img
           v-else
@@ -24,61 +24,66 @@
               :src="`http://localhost:4000/${image}`"
               :alt="product.title"
               @click="changeMainImage(image)"
-              class="object-cover w-full h-full"
+              class="object-cover w-full h-full rounded-md"
             />
           </div>
         </div>
       </div>
-      <div>
-        <h1 class="text-2xl font-bold mb-3">{{ product.name }}</h1>
-        <div class="mb-3">
-          <span v-if="product.price" class="text-red-600 font-bold text-xl"
-            >Giá Sản Phẩm :{{ product.price.toLocaleString("vi-VN") }} ₫</span
-          >
-        </div>
-        <div class="mb-3">
-          <p class="font-semibold">
-            {{ product.status ? "Còn hàng" : "Hết hàng" }}
+      <div class="max-w-lg mx-auto">
+        <h1 class="text-2xl font-bold mb-4">
+          {{ product.name }}
+        </h1>
+        <div class="mb-4 p-4 border-2 border-dashed border-red-500">
+          <p v-if="product.price" class="text-red-600 text-lg font-semibold">
+            Giá Khuyến Mãi: {{ product.price.toLocaleString("vi-VN") }} ₫
           </p>
         </div>
-        <div class="border-t-2 border-red-600 pt-2">
-          <h2 class="text-lg font-bold mb-2">
-            Danh Mục :
-            {{ product.category ? product.category.name : "Không có danh mục" }}
-          </h2>
-          <ul class="list-disc pl-5">
-            <div
-              class="bg-red-500 rounded mb-5 p-1 text-white w-1/3"
+        <div class="mb-4">
+          <p>
+            <span class="font-semibold">Tình trạng:</span>
+            <span class="text-red-600">
+              {{ product.status ? "Còn hàng" : "Hết hàng" }} : Tại 47 Lương Văn
+              Thăng TP Ninh Bình</span
             >
-              <!-- Nội dung -->
-              THÔNG SỐ CƠ BẢN :
-            </div>
-            <li v-for="info in product.basicInfo" :key="info">{{ info }}</li>
+          </p>
+
+          <p>
+            <span class="font-semibold">Bảo hành:</span>
+            {{ product.guarantee ? product.guarantee : 12 }} tháng
+          </p>
+        </div>
+        <div class="mb-4 p-4 border-2">
+          <h2 class="text-lg font-semibold mb-2">THÔNG SỐ CƠ BẢN</h2>
+          <ul class="list-disc pl-5">
+            <li v-for="(item, index) in product.basicInfo" :key="index">
+              {{ item }}
+            </li>
           </ul>
         </div>
-        <div class="mb-6 bg-blue">
-          <div class="border-2 border-white rounded-lg p-4 mb-4">
-            <div class="flex items-center mb-2">
-              <i class="fas fa-gift text-lg mr-2"></i>
-              <h3 class="text-lg font-bold uppercase">Quà tặng/khuyến mãi</h3>
-            </div>
-            <ul class="list-disc pl-6">
-              <li>Lắp đặt tại Ninh Bình và Nam Định</li>
-              <li>Lắp đặt trọn gói không phát sinh phụ phí</li>
-              <li>Kỹ thuật chuyên nghiệp tận tâm.</li>
-            </ul>
-          </div>
-          <button
-            class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded mb-2 w-full"
-          >
-            Mua Ngay
-          </button>
-          <button
-            class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full"
-          >
-            Thêm vào giỏ hàng
-          </button>
+        <div class="mb-4 p-4 border-2">
+          <h2 class="text-lg font-semibold mb-2 flex items-center">
+            <i class="fas fa-gift text-red-600 mr-2"></i>
+            QUÀ TẶNG/KHUYẾN MÃI
+          </h2>
+          <ul class="list-disc pl-5">
+            <li>Giao Hàng Lắp Đặt Trong 40Km</li>
+            <li>Miễn chuyển giao kỹ thuật</li>
+            <li>Tặng Phần Mềm Chấm Công 800.000đ</li>
+            <li>Giảm 10% Khi Mua Thêm Camera</li>
+            <li>Gửi COD Miễn Phí Toàn Quốc</li>
+            <li>Dùng Thử 1 Đổi 1 Trong Vòng 7 Ngày</li>
+          </ul>
         </div>
+        <button
+          class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded mb-2 w-full"
+        >
+          Mua Ngay
+        </button>
+        <button
+          class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full"
+        >
+          Thêm vào giỏ hàng
+        </button>
       </div>
     </div>
   </div>

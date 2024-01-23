@@ -1,53 +1,52 @@
-
-
 module.exports = {
+  generate: {
+    fallback: true,
+  },
+  ssr: false,
   css: [
-    '@/assets/css/tailwind.css',
-    '@fortawesome/fontawesome-free/css/all.css',
+    "@/assets/css/tailwind.css",
+    "@fortawesome/fontawesome-free/css/all.css",
   ],
-  buildModules: ['@nuxtjs/tailwindcss',]
-  ,
+  buildModules: ["@nuxtjs/tailwindcss"],
   alias: {
-    '@components': '~/components',
-    '@plugins': '~/plugins',
-    '@pages': '~/pages'
-
+    "@components": "~/components",
+    "@plugins": "~/plugins",
+    "@pages": "~/pages",
   },
   /*
-  ** Headers of the page
-  */
+   ** Headers of the page
+   */
   /*
-  ** Customize the progress bar color
-  */
-  loading: { color: '#3B8070' },
+   ** Customize the progress bar color
+   */
+  loading: { color: "#3B8070" },
   /*
-  ** Build configuration
-  */
+   ** Build configuration
+   */
   build: {
     standalone: true,
     /*
-    ** Run ESLint on save
-    */
+     ** Run ESLint on save
+     */
     extend(config, { isDev, isClient }) {
       if (isDev && isClient) {
         config.module.rules.push({
-          enforce: 'pre',
+          enforce: "pre",
           test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
+          loader: "eslint-loader",
+          exclude: /(node_modules)/,
+        });
       }
-      config.resolve.alias['~components'] = '@/components';
+      config.resolve.alias["~components"] = "@/components";
     },
     postcss: {
       plugins: {
-        tailwindcss: './tailwind.config.js',
+        tailwindcss: "./tailwind.config.js",
         autoprefixer: {},
-        'postcss-preset-env': {
+        "postcss-preset-env": {
           autoprefixer: { grid: true },
         },
       },
     },
-  }
-}
-
+  },
+};
