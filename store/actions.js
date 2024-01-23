@@ -99,5 +99,8 @@ export default {
     } catch (error) {}
   },
 
-  async findProductbyId({ commit }, id) {},
+  async findProductbyId({ commit }, id) {
+    const reuslt = await axiosInstance.get(`/product/${id}`);
+    return reuslt.data;
+  },
 };
