@@ -4,18 +4,16 @@
       <div>
         <img
           v-if="product.images"
-          :src="product.images[0]"
+          :src="mainImage"
           :alt="product.title"
           class="fixed-size-image border-red-600"
         />
-        <v-else>
-          <span
-            ><img
-              src="https://cptudong.vmts.vn/content/images/thumbs/default-image_450.png"
-              :alt="product.title"
-              class="fixed-size-image border-red-600"
-          /></span>
-        </v-else>
+        <img
+          v-else
+          src="https://cptudong.vmts.vn/content/images/thumbs/default-image_450.png"
+          :alt="product.title"
+          class="fixed-size-image border-red-600"
+        />
         <div class="grid grid-cols-4 gap-4 mt-4">
           <div
             v-for="(image, index) in product.images"
@@ -23,7 +21,7 @@
             class="relative w-full flex mb-4"
           >
             <img
-              :src="image"
+              :src="`http://localhost:4000/${image}`"
               :alt="product.title"
               @click="changeMainImage(image)"
               class="object-cover w-full h-full"
@@ -85,6 +83,7 @@ export default {
   data() {
     return {
       product: {},
+      mainImage:''
     };
   },
   created() {
@@ -96,6 +95,7 @@ export default {
         this.product = {
           ...data,
         };
+        this.mainImage = `http://localhost:4000/${this.product.images[0]}`;
       })
       .catch((error) => {
         // Xử lý lỗi nếu có
@@ -108,7 +108,8 @@ export default {
   },
   methods: {
     changeMainImage(newImage) {
-      this.product.mainImage = newImage;
+      this.mainImage = `http://localhost:4000/${newImage}`;
+      console.log(" this.mainImage", this.mainImage);
     },
   },
 };
