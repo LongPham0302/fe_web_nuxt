@@ -32,9 +32,9 @@
       <div>
         <h1 class="text-2xl font-bold mb-3">{{ product.name }}</h1>
         <div class="mb-3">
-          <span class="text-red-600 font-bold text-xl">{{
-            product.price
-          }}</span>
+          <span v-if="product.price" class="text-red-600 font-bold text-xl"
+            >Giá Sản Phẩm :{{ product.price.toLocaleString("vi-VN") }} ₫</span
+          >
         </div>
         <div class="mb-3">
           <p class="font-semibold">
@@ -43,9 +43,16 @@
         </div>
         <div class="border-t-2 border-red-600 pt-2">
           <h2 class="text-lg font-bold mb-2">
+            Danh Mục :
             {{ product.category ? product.category.name : "Không có danh mục" }}
           </h2>
           <ul class="list-disc pl-5">
+            <div
+              class="bg-red-500 rounded mb-5 p-1 text-white w-1/3"
+            >
+              <!-- Nội dung -->
+              THÔNG SỐ CƠ BẢN :
+            </div>
             <li v-for="info in product.basicInfo" :key="info">{{ info }}</li>
           </ul>
         </div>
@@ -83,7 +90,7 @@ export default {
   data() {
     return {
       product: {},
-      mainImage:''
+      mainImage: "",
     };
   },
   created() {
