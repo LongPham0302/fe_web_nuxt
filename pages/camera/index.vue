@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-5 mb-5">
+  <div class="mb-5">
     <CameraComponent />
   </div>
 </template>

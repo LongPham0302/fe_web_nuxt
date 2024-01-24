@@ -1,12 +1,15 @@
 <template>
   <div class="bg-white">
-    <div
-      class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8"
-    >
-      <h2 class="text-2xl font-bold tracking-tight text-gray-900">CAMERA</h2>
+    <div class="mx-auto">
+      <div class="box flex border-b">
+        <div class="bg-red-600 w-1/5">
+            <h1 class="pl-5 text-white font-bold uppercase text-2xl">CAMERA</h1>
+          </div>
+          <div class="triangle-right"></div>
 
+      </div>
       <div
-        class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8"
+        class="mt-5 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 mx-auto ml-3"
       >
         <div
           v-for="product in getListProduct"
@@ -74,9 +77,22 @@ export default {
   },
   methods: {
     goToInfoProduct(id) {
-        console.log(id);
+      console.log(id);
       this.$router.replace(`/camera/${id}`);
     },
   },
 };
 </script>
+<style>
+.triangle-right {
+  width: 0;
+  height: 0;
+  border-top: 18px solid transparent;
+  border-left: 30px solid rgb(220 38 38);
+  border-bottom: 18px solid transparent;
+}
+.box {
+  background-color: #ebebeb;
+  border-bottom: 2px solid rgb(220 38 38);
+}
+</style>
