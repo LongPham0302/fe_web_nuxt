@@ -7,7 +7,7 @@
         <div class="p-4">
           <ul>
             <li v-for="item in sidebarItems" :key="item.id" class="mb-2">
-              <a href="#" class="flex items-center relative">
+              <div class="flex items-center relative">
                 <nuxt-link :to="item.text">
                   <i :class="item.icon" class="mr-2"></i>
                   {{ item.text }}
@@ -26,7 +26,7 @@
                     stroke-linecap="round"
                   ></path>
                 </svg>
-              </a>
+              </div>
             </li>
           </ul>
         </div>
