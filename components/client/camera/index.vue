@@ -1,6 +1,6 @@
 <template>
   <div class="bg-white">
-    <div class="mx-auto">
+    <div class="mx-auto w-2/3 mt-5 mb-5">
       <div class="box flex border-b">
         <div class="bg-red-600 w-1/5">
           <h1 class="pl-5 text-white font-bold uppercase text-2xl">CAMERA</h1>
