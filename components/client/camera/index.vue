@@ -58,12 +58,14 @@ export default {
     return {
       settings: {
         dots: true,
-        infinite: false,
-        initialSlide: 2,
-        speed: 500,
-        slidesToShow: 3,
+        infinite: true,
+        slidesToShow: 1,
         slidesToScroll: 1,
-        swipeToSlide: false,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        pauseOnDotsHover: true,
+        pauseOnFocus: true,
+        pauseOnHover: true,
       },
       products: [
         {
