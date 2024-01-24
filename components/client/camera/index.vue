@@ -3,10 +3,9 @@
     <div class="mx-auto">
       <div class="box flex border-b">
         <div class="bg-red-600 w-1/5">
-            <h1 class="pl-5 text-white font-bold uppercase text-2xl">CAMERA</h1>
-          </div>
-          <div class="triangle-right"></div>
-
+          <h1 class="pl-5 text-white font-bold uppercase text-2xl">CAMERA</h1>
+        </div>
+        <div class="triangle-right"></div>
       </div>
       <div
         class="mt-5 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 mx-auto ml-3"
@@ -30,17 +29,18 @@
               class="h-full w-full object-cover object-center lg:h-full lg:w-full"
             />
           </div>
-          <div class="mt-4 flex justify-between">
+          <div class="mt-4">
             <div>
-              <h3 class="text-sm text-gray-700">
-                <a :href="product.href">
-                  <span aria-hidden="true" class="absolute inset-0" />
-                  {{ product.name }}
-                </a>
-              </h3>
-              <p class="mt-1 text-sm text-gray-500">{{ product.color }}</p>
+              <span class="text-center font-bold uppercase">
+                {{ product.name }}
+              </span>
             </div>
-            <p class="text-sm font-medium text-gray-900">{{ product.price }}</p>
+            <p
+              v-if="product.price"
+              class="text-center text-red-600 font-bold"
+            >
+              {{ product.price.toLocaleString("vi-VN") }} _đ
+            </p>
           </div>
         </div>
       </div>

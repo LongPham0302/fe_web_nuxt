@@ -18,14 +18,16 @@
           <div
             v-for="(image, index) in product.images"
             :key="index"
-            class="relative w-full flex mb-4"
+            class="relative w-full mb-4"
           >
-            <img
-              :src="`https://be-web-p8nb.onrender.com/${image}`"
-              :alt="product.title"
-              @click="changeMainImage(image)"
-              class="object-cover w-full h-full rounded-md"
-            />
+            <div class="image-container">
+              <img
+                :src="`https://be-web-p8nb.onrender.com/${image}`"
+                :alt="product.title"
+                @click="changeMainImage(image)"
+                class="object-cover w-full h-full rounded-md"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -134,5 +136,20 @@ export default {
   /* Đặt chiều cao cố định */
   object-fit: cover;
   /* Giữ nguyên tỉ lệ khung hình và cắt bớt nếu cần */
+}
+.image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px; /* Điều chỉnh giá trị bo tròn theo ý muốn */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Điều chỉnh giá trị màu xám */
+  padding: 8px; /* Điều chỉnh giá trị lề theo ý muốn */
+}
+
+.image-container img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
 }
 </style>
