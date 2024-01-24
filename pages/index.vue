@@ -70,9 +70,7 @@ export default {
   },
   data() {
     return {
-      sidebarItems: [
-        { id: 1, text: "camera", icon: "fas fa-mobile-alt" },
-      ],
+      sidebarItems: [{ id: 1, text: "camera", icon: "fas fa-mobile-alt" }],
       mainBanner: {
         id: 1,
         src: "https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:10/plain/https://dashboard.cellphones.com.vn/storage/samsung-s23-th1-right.png",

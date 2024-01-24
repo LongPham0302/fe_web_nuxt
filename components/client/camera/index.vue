@@ -7,14 +7,13 @@
         </div>
         <div class="triangle-right"></div>
       </div>
-      <div
-        class="mt-5 pb-5 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 mx-auto ml-3"
-      >
+      <VueSlickCarousel v-if="getListProduct.length > 0" v-bind="settings">
         <div
+          v-show="getListProduct"
           v-for="product in getListProduct"
           :key="product._id"
-          class="group relative"
           @click="goToInfoProduct(product._id)"
+          class="p-3"
         >
           <div
             class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
@@ -35,25 +34,37 @@
                 {{ product.name }}
               </span>
             </div>
-            <p
-              v-if="product.price"
-              class="text-center text-red-600 font-bold"
-            >
+            <p v-if="product.price" class="text-center text-red-600 font-bold">
               {{ product.price.toLocaleString("vi-VN") }} _đ
             </p>
           </div>
         </div>
-      </div>
+      </VueSlickCarousel>
     </div>
   </div>
 </template>
 <script>
 import { mapGetters } from "vuex";
+import VueSlickCarousel from "vue-slick-carousel";
+import "vue-slick-carousel/dist/vue-slick-carousel.css";
+import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
   name: "CameraComponent",
+  components: {
+    VueSlickCarousel,
+  },
   data() {
     return {
+      settings: {
+        dots: true,
+        infinite: false,
+        initialSlide: 2,
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        swipeToSlide: false,
+      },
       products: [
         {
           id: 1,
