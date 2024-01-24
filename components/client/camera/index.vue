@@ -1,12 +1,12 @@
 <template>
   <div class="bg-white">
-    <div class="mx-auto w-2/3 mt-5 mb-5">
-      <div class="box flex border-b">
-        <div class="bg-red-600 w-1/5">
-          <h1 class="pl-5 text-white font-bold uppercase text-2xl">CAMERA</h1>
-        </div>
-        <div class="triangle-right"></div>
+    <div class="box flex border-b mt-2">
+      <div class="bg-red-600 w-1/5">
+        <h1 class="pl-5 text-white font-bold uppercase text-2xl">CAMERA</h1>
       </div>
+      <div class="triangle-right"></div>
+    </div>
+    <div class="mx-auto w-2/3 mt-5 mb-5">
       <VueSlickCarousel v-if="getListProduct.length > 0" v-bind="settings">
         <div
           v-show="getListProduct"
