@@ -21,7 +21,7 @@
             class="relative w-full flex mb-4"
           >
             <img
-              :src="`http://localhost:4000/${image}`"
+              :src="`https://be-web-p8nb.onrender.com/${image}`"
               :alt="product.title"
               @click="changeMainImage(image)"
               class="object-cover w-full h-full rounded-md"
@@ -107,7 +107,7 @@ export default {
         this.product = {
           ...data,
         };
-        this.mainImage = `http://localhost:4000/${this.product.images[0]}`;
+        this.mainImage = `https://be-web-p8nb.onrender.com/${this.product.images[0]}`;
       })
       .catch((error) => {
         // Xử lý lỗi nếu có
@@ -120,7 +120,7 @@ export default {
   },
   methods: {
     changeMainImage(newImage) {
-      this.mainImage = `http://localhost:4000/${newImage}`;
+      this.mainImage = `https://be-web-p8nb.onrender.com/${newImage}`;
       console.log(" this.mainImage", this.mainImage);
     },
   },

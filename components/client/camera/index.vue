@@ -23,7 +23,7 @@
             <img
               :src="
                 product.images && product.images.length > 0
-                  ? `http://localhost:4000/${product.images[0]}`
+                  ? `https://be-web-p8nb.onrender.com/${product.images[0]}`
                   : 'https://cdn.tuoitre.vn/zoom/700_700/471584752817336320/2023/6/13/03-16866569815101672545124-16-10-534-1000-crop-16866570358101851702408.jpg'
               "
               :alt="product.imageAlt"
