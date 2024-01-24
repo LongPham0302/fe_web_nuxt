@@ -8,7 +8,7 @@
         <div class="triangle-right"></div>
       </div>
       <div
-        class="mt-5 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 mx-auto ml-3"
+        class="mt-5 pb-5 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8 mx-auto ml-3"
       >
         <div
           v-for="product in getListProduct"
