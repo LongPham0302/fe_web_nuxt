@@ -72,8 +72,6 @@ export default {
     return {
       sidebarItems: [
         { id: 1, text: "camera", icon: "fas fa-mobile-alt" },
-        { id: 2, text: "máy tính", icon: "fas fa-laptop" },
-        { id: 3, text: "Âm thanh", icon: "fas fa-volume-up" },
       ],
       mainBanner: {
         id: 1,
