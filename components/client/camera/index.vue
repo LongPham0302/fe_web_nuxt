@@ -6,7 +6,7 @@
       </div>
       <div class="triangle-right"></div>
     </div>
-    <div class="mx-auto w-2/3 mt-5 mb-5">
+    <div class="mx-auto w-3/4 mt-5 mb-5">
       <VueSlickCarousel v-if="getListProduct.length > 0" v-bind="settings">
         <div
           v-show="getListProduct"
@@ -59,7 +59,7 @@ export default {
       settings: {
         dots: true,
         infinite: true,
-        slidesToShow: 1,
+        slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
