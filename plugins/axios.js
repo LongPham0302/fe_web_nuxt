@@ -1,10 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
+
 
 const axiosInstance = axios.create({
-    baseURL: 'https://be-web-p8nb.onrender.com/',
-    headers: {
-        'accept': 'application/json'
-    }
+  baseURL: "http://localhost:4000/",
+  headers: {
+    accept: "application/json",
+  },
 });
 
 export default axiosInstance;

@@ -13,6 +13,10 @@ module.exports = {
     "@plugins": "~/plugins",
     "@pages": "~/pages",
   },
+
+  publicRuntimeConfig: {
+    apiUrl: process.env.apiUrl,
+  },
   /*
    ** Headers of the page
    */

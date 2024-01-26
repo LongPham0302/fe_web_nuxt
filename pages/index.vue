@@ -55,7 +55,9 @@
       <div class="p-3 mt-5">
         <img :src="imgBanner" alt="" />
       </div>
-      <CameraHome />
+      <div>
+        <CameraHome />
+      </div>
     </div>
   </div>
 </template>
@@ -68,8 +70,10 @@ export default {
   components: {
     CameraHome,
   },
+
   data() {
     return {
+      id: null,
       sidebarItems: [{ id: 1, text: "camera", icon: "fas fa-mobile-alt" }],
       mainBanner: {
         id: 1,
@@ -90,7 +94,7 @@ export default {
         {
           id: 3,
           src: "https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:10/plain/https://dashboard.cellphones.com.vn/storage/samsung-s23-th1-right.png",
-          alt: "Promotional banner for iPad The 9 with discounted price",
+          alt: "Promotional banner for iPad The 9 with discounted price ",
         },
       ],
       imgBanner:

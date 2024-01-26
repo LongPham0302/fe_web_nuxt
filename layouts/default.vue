@@ -6,21 +6,43 @@
   </div>
 </template>
 <script>
-import Fotter from '@components/footer';
-import Header from '@components/header';
+import Fotter from "@components/footer";
+import Header from "@components/header";
 
 export default {
-  name: 'Footer',
+  name: "Footer",
   components: {
     Fotter,
-    Header
+    Header,
   },
-}
+  created() {
+    // Kiểm tra xem Local Storage có chứa khóa 'requestID' hay không
+    if (!localStorage.getItem("requestID")) {
+      // Nếu không có, thực hiện lấy địa chỉ IP và lưu vào Local Storage
+      fetch("https://api.ipify.org?format=json")
+        .then((response) => response.json())
+        .then((data) => {
+          const ipAddress = data.ip;
+          // Lưu địa chỉ IP vào Local Storage với khóa 'requestID'
+          localStorage.setItem("requestID", ipAddress);
+          // Gọi hàm hoặc thực hiện các bước tiếp theo sau khi lưu vào Local Storage
+          // ...
+        })
+        .catch((error) => console.error("Lỗi:", error));
+    } else {
+      // Nếu khóa 'requestID' đã tồn tại trong Local Storage, bạn có thể thực hiện các bước khác
+      const existingRequestID = localStorage.getItem("requestID");
 
+      // Gọi hàm hoặc thực hiện các bước tiếp theo sau khi kiểm tra Local Storage
+      // ...
+    }
+  },
+};
 </script>
 <style>
 html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -66,4 +88,3 @@ html {
   background-color: #35495e;
 }
 </style>
-

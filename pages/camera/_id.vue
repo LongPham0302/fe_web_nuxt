@@ -14,17 +14,21 @@
           :alt="product.title"
           class="fixed-size-image border-red-600"
         />
-        <div class="grid grid-cols-4 gap-4 mt-4">
+        <div class="grid grid-cols-4 mt-4">
           <div
             v-for="(image, index) in product.images"
             :key="index"
             class="relative w-full mb-4"
+            style="width: 100px; height: 100px"
           >
-            <div class="image-container">
+            <div
+              class="image-container"
+              @click="changeMainImage(image)"
+              style="width: 100px; height: 100px"
+            >
               <img
-                :src="`https://be-web-p8nb.onrender.com/${image}`"
+                :src="getImageUrl(image)"
                 :alt="product.title"
-                @click="changeMainImage(image)"
                 class="object-cover w-full h-full rounded-md"
               />
             </div>
@@ -83,6 +87,7 @@
         </button>
         <button
           class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded w-full"
+          @click="addToCart(product)"
         >
           Thêm vào giỏ hàng
         </button>
@@ -109,7 +114,7 @@ export default {
         this.product = {
           ...data,
         };
-        this.mainImage = `https://be-web-p8nb.onrender.com/${this.product.images[0]}`;
+        this.mainImage = `${this.$config.apiUrl}/${this.product.images[0]}`;
       })
       .catch((error) => {
         // Xử lý lỗi nếu có
@@ -122,8 +127,13 @@ export default {
   },
   methods: {
     changeMainImage(newImage) {
-      this.mainImage = `https://be-web-p8nb.onrender.com/${newImage}`;
-      console.log(" this.mainImage", this.mainImage);
+      this.mainImage = `${this.$config.apiUrl}/${newImage}`;
+    },
+    getImageUrl(imageName) {
+      return `${this.$config.apiUrl}/${imageName}`;
+    },
+    addToCart(item) {
+      this.$store.dispatch("addToCart", item);
     },
   },
 };

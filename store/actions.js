@@ -24,41 +24,9 @@ export default {
     }
   },
 
-  async updateCategory({ commit }, { data, id }) {
+  async getlistProducts({ commit }, id) {
     try {
-      const response = await axiosInstance.put("/categories/" + id, data);
-      if (response.status === 200) {
-        return {
-          ok: true,
-        };
-      } else {
-        return {
-          ok: false,
-        };
-      }
-    } catch (error) {}
-  },
-
-  async createCategory({ commit }, data) {
-    try {
-      const response = await axiosInstance.post("/categories/", data);
-      if (response.status === 201) {
-        return {
-          ok: true,
-        };
-      } else {
-        return {
-          ok: false,
-        };
-      }
-    } catch (error) {
-      return error.response.data.message;
-    }
-  },
-
-  async getlistProducts({ commit }) {
-    try {
-      const response = await axiosInstance.get("/product/");
+      const response = await axiosInstance.get("/product/category/" + id);
       if (response.status === 200) {
         commit("SET_LIST_PRODUCT", response.data);
       }
@@ -67,40 +35,73 @@ export default {
     }
   },
 
-  async upload({ commit }, photo) {
+  async findProductbyId({ commit }, id) {
+    const reuslt = await axiosInstance.get(`/product/${id}`);
+    return reuslt.data;
+  },
+
+  async addToCart({ commit, state }, product) {
     try {
-      const response = await axiosInstance.post("/upload/uploads/", photo);
+      const existingRequestID = localStorage.getItem("requestID");
+
+      const cartItem = {
+        user: existingRequestID, // hoặc nếu bạn có thông tin user từ đâu khác, sử dụng thông tin đó
+        items: [
+          {
+            id: product._id,
+            name: product.name,
+            price: product.price,
+            count: 1,
+          },
+        ],
+        image: product.images[0],
+      };
+
+      const response = await axiosInstance.post("/cart", cartItem);
       if (response.status === 201) {
-        return {
-          ok: response.data.image,
-        };
-      } else {
-        return {
-          ok: false,
-        };
+        commit("SET_ORDER_STATUS", !state.orderStatus);
       }
+      // Bạn có thể cần cập nhật mutation để xử lý response.data
     } catch (error) {
-      return error.response.data.message;
+      console.error(error);
     }
   },
 
-  async createProduct({ commit }, data) {
+  async getListCart({ commit }, id) {
     try {
-      const response = await axiosInstance.post("/product/", data);
-      if (response.status === 201) {
-        return {
-          ok: true,
-        };
-      } else {
-        return {
-          ok: false,
-        };
+      const reuslt = await axiosInstance.get(`/cart/${id}`);
+      if (reuslt.status === 200) {
+        return reuslt.data;
       }
     } catch (error) {}
   },
 
-  async findProductbyId({ commit }, id) {
-    const reuslt = await axiosInstance.get(`/product/${id}`);
-    return reuslt.data;
+  async logIn({ commit, state }, data) {
+    try {
+      const reuslt = await axiosInstance.post("/auth/login", data);
+      if (reuslt.status === 201) {
+        localStorage.setItem("key", JSON.stringify(reuslt.data));
+      }
+    } catch (error) {}
+  },
+
+  async CreateOrder({ commit, state }, data) {
+    try {
+      const reuslt = await axiosInstance.post("/orders", data);
+      if (reuslt.status === 201) {
+        commit("SET_ORDER_STATUS", !state.orderStatus);
+        this.$router.push("/");
+      }
+    } catch (error) {}
+  },
+
+  async getListHeader({ commit }) {
+    try {
+      const reuslt = await axiosInstance.get("/headers/");
+      if (reuslt.status === 200) {
+        commit("SET_HEADER", reuslt.data[0]);
+        return reuslt.data;
+      }
+    } catch (error) {}
   },
 };

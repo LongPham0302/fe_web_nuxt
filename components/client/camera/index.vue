@@ -21,7 +21,7 @@
             <img
               :src="
                 product.images && product.images.length > 0
-                  ? `https://be-web-p8nb.onrender.com/${product.images[0]}`
+                  ? getImageUrl(product.images[0])
                   : 'https://cdn.tuoitre.vn/zoom/700_700/471584752817336320/2023/6/13/03-16866569815101672545124-16-10-534-1000-crop-16866570358101851702408.jpg'
               "
               :alt="product.imageAlt"
@@ -54,6 +54,12 @@ export default {
   components: {
     VueSlickCarousel,
   },
+  props: {
+    id: {
+      type: String,
+      default: "",
+    },
+  },
   data() {
     return {
       settings: {
@@ -67,31 +73,20 @@ export default {
         pauseOnFocus: true,
         pauseOnHover: true,
       },
-      products: [
-        {
-          id: 1,
-          name: "Basic Tee",
-          href: "#",
-          imageSrc:
-            "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-          imageAlt: "Front of men's Basic Tee in black.",
-          price: "$35",
-          color: "Black",
-        },
-        // More products...
-      ],
     };
   },
-  created() {
-    this.$store.dispatch("getlistProducts");
+  mounted() {
+    this.$store.dispatch("getlistProducts", this.id);
   },
   computed: {
     ...mapGetters(["getListProduct"]),
   },
   methods: {
     goToInfoProduct(id) {
-      console.log(id);
       this.$router.replace(`/camera/${id}`);
+    },
+    getImageUrl(imageName) {
+      return `${this.$config.apiUrl}/${imageName}`;
     },
   },
 };
