@@ -104,4 +104,23 @@ export default {
       }
     } catch (error) {}
   },
+
+  async paginateProducts({ commit }, data) {
+    const { page, pageSize, searchTerm, minPrice, maxPrice, category } = data;
+    try {
+      const reuslt = await axiosInstance.get("/product", {
+        params: {
+          searchTerm: searchTerm,
+          page: page,
+          pageSize: pageSize,
+          minPrice: minPrice,
+          maxPrice: maxPrice,
+          category: category,
+        },
+      });
+      if (reuslt.status === 200) {
+        return reuslt;
+      }
+    } catch (error) {}
+  },
 };

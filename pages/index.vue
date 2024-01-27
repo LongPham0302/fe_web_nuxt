@@ -4,32 +4,7 @@
     <div class="container w-3/4 bg-white mx-auto">
       <div class="grid grid-cols-4 gap-4 p-4">
         <!-- Sidebar -->
-        <div class="p-4">
-          <ul>
-            <li v-for="item in sidebarItems" :key="item.id" class="mb-2">
-              <div class="flex items-center relative">
-                <nuxt-link :to="item.text">
-                  <i :class="item.icon" class="mr-2"></i>
-                  {{ item.text }}
-                </nuxt-link>
-                <svg
-                  width="3"
-                  height="24"
-                  viewBox="0 -9 3 24"
-                  class="absolute end-5 mr-2 text-slate-400 overflow-visible group-hover:text-slate-600 dark:text-slate-600 dark:group-hover:text-slate-500"
-                >
-                  <path
-                    d="M0 0L3 3L0 6"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                    stroke-linecap="round"
-                  ></path>
-                </svg>
-              </div>
-            </li>
-          </ul>
-        </div>
+        <sideBar />
         <div class="col-span-3 grid grid-cols-3 gap-4">
           <!-- Main banner -->
           <div class="col-span-2">
@@ -56,25 +31,25 @@
         <img :src="imgBanner" alt="" />
       </div>
       <div>
-        <CameraHome />
+        <ProductHome />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import CameraHome from "@pages/camera";
-
+import ProductHome from "@pages/product";
+import sideBar from "@components/SideBar";
 export default {
   name: "MyComponent",
   components: {
-    CameraHome,
+    ProductHome,
+    sideBar,
   },
 
   data() {
     return {
       id: null,
-      sidebarItems: [{ id: 1, text: "camera", icon: "fas fa-mobile-alt" }],
       mainBanner: {
         id: 1,
         src: "https://cdn2.cellphones.com.vn/insecure/rs:fill:690:300/q:10/plain/https://dashboard.cellphones.com.vn/storage/samsung-s23-th1-right.png",

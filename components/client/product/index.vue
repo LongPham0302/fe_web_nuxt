@@ -2,7 +2,7 @@
   <div class="bg-white">
     <div class="box flex border-b mt-2">
       <div class="bg-red-600 w-1/5">
-        <h1 class="pl-5 text-white font-bold uppercase text-2xl">CAMERA</h1>
+        <h1 class="pl-5 text-white font-bold uppercase text-2xl">{{ name }}</h1>
       </div>
       <div class="triangle-right"></div>
     </div>
@@ -50,12 +50,16 @@ import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
 
 export default {
-  name: "CameraComponent",
+  name: "ProductComponent",
   components: {
     VueSlickCarousel,
   },
   props: {
     id: {
+      type: String,
+      default: "",
+    },
+    name: {
       type: String,
       default: "",
     },
@@ -83,7 +87,7 @@ export default {
   },
   methods: {
     goToInfoProduct(id) {
-      this.$router.replace(`/camera/${id}`);
+      this.$router.replace(`/product/${id}`);
     },
     getImageUrl(imageName) {
       return `${this.$config.apiUrl}/${imageName}`;
