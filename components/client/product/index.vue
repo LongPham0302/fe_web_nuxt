@@ -6,11 +6,14 @@
       </div>
       <div class="triangle-right"></div>
     </div>
-    <div class="mx-auto w-3/4 mt-5 mb-5">
-      <VueSlickCarousel v-if="getListProduct.length > 0" v-bind="settings">
+    <div
+      class="mx-auto w-3/4 mt-5 mb-5"
+      v-if="listProduct && listProduct.length > 0"
+    >
+      <VueSlickCarousel v-bind="settings">
         <div
-          v-show="getListProduct"
-          v-for="product in getListProduct"
+          v-show="listProduct"
+          v-for="product in listProduct"
           :key="product._id"
           @click="goToInfoProduct(product._id)"
           class="p-3"
@@ -44,7 +47,6 @@
   </div>
 </template>
 <script>
-import { mapGetters } from "vuex";
 import VueSlickCarousel from "vue-slick-carousel";
 import "vue-slick-carousel/dist/vue-slick-carousel.css";
 import "vue-slick-carousel/dist/vue-slick-carousel-theme.css";
@@ -77,13 +79,13 @@ export default {
         pauseOnFocus: true,
         pauseOnHover: true,
       },
+      listProduct: null,
     };
   },
-  mounted() {
-    this.$store.dispatch("getlistProducts", this.id);
-  },
-  computed: {
-    ...mapGetters(["getListProduct"]),
+  created() {
+    this.$store
+      .dispatch("getlistProduct", this.id)
+      .then((res) => (this.listProduct = res));
   },
   methods: {
     goToInfoProduct(id) {

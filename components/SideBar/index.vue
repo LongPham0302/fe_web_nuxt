@@ -7,7 +7,7 @@
         class="mb-2 cursor-pointer"
         @click="goToProductCategory(item.name)"
       >
-        <div class="flex items-cnter relative">
+        <div class="flex items-cnter relative text-red-600">
           {{ item.name }}
           <svg
             width="3"

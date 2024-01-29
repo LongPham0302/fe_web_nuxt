@@ -24,11 +24,11 @@ export default {
     }
   },
 
-  async getlistProducts({ commit }, id) {
+  async getlistProduct({ commit }, id) {
     try {
       const response = await axiosInstance.get("/product/category/" + id);
       if (response.status === 200) {
-        commit("SET_LIST_PRODUCT", response.data);
+        return response.data;
       }
     } catch (error) {
       console.error("Error fetching categories:", error);

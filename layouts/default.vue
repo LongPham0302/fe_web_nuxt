@@ -1,6 +1,7 @@
 <template>
   <div>
     <Header />
+    <Search />
     <nuxt />
     <Fotter />
   </div>
@@ -8,14 +9,18 @@
 <script>
 import Fotter from "@components/footer";
 import Header from "@components/header";
+import Search from "@components/search";
 
 export default {
   name: "Footer",
   components: {
     Fotter,
     Header,
+    Search,
   },
+
   created() {
+    this.$store.dispatch("getListHeader");
     // Kiểm tra xem Local Storage có chứa khóa 'requestID' hay không
     if (!localStorage.getItem("requestID")) {
       // Nếu không có, thực hiện lấy địa chỉ IP và lưu vào Local Storage

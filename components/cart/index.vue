@@ -1,8 +1,7 @@
 <template>
-  <div class="flex items-center cursor-pointer" @click="goToCart">
-    <i class="fas fa-shopping-cart text-white text-sm mr-1"></i>
-    <span class="text-white text-sm">
-      Giỏ hàng / {{ loading ? "Đang tải..." : countProduct }} Sản Phẩm
+  <div class="flex cursor-pointer p-2" @click="goToCart">
+    <span class="text-red-600 text-sm font-bold">
+      Giỏ Hàng / {{ loading ? "Đang tải..." : countProduct }} đ
     </span>
   </div>
 </template>
@@ -35,7 +34,7 @@ export default {
       const existingRequestID = localStorage.getItem("requestID");
 
       this.$store.dispatch("getListCart", existingRequestID).then((res) => {
-        this.countProduct = res[0].totalItems;
+        this.countProduct = res[0].totalPrice;
         this.loading = false;
       });
     },

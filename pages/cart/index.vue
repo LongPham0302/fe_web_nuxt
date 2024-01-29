@@ -7,6 +7,7 @@
             v-for="(item, index) in cartItems.items"
             :key="index"
             :item="item"
+            :img="cartItems.img"
           />
         </div>
         <div id="summary" class="w-1/4 px-8 py-10">

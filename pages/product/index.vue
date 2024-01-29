@@ -1,6 +1,10 @@
 <template>
-  <div class="mb-5">
-    <div v-for="(item, index) in getListCategories" :key="index">
+  <div class="flex-col">
+    <div
+      style="margin-top: 50px"
+      v-for="(item, index) in getListCategories"
+      :key="index"
+    >
       <ProductComponent :id="item._id" :name="item.name" />
     </div>
   </div>

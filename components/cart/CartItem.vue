@@ -2,10 +2,8 @@
 
 <template>
     <div class="flex items-center hover:bg-gray-100 -mx-8 px-6 py-5">
-      <div class="flex w-2/5">
-        <div class="w-20">
-          <img :src="getImageUrl(item.image)" :alt="'Image of ' + item.name" class="h-24" />
-        </div>
+      <div class="flex">
+        <img :src="getImageUrl(img)" :alt="'Image of ' + item.name" class="h-24" />
         <div class="flex flex-col justify-between ml-4 flex-grow">
           <span class="font-bold text-sm">{{ item.name }}</span>
           <span class="text-gray-500 text-xs">{{ item.price.toLocaleString("vi-VN") }} đ</span>
@@ -25,6 +23,9 @@
       item: {
         type: Object,
         required: true,
+      },
+      img: {
+        type: String,
       },
     },
     methods: {

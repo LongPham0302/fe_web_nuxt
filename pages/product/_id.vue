@@ -81,6 +81,7 @@
           </ul>
         </div>
         <button
+        @click="GoToOrder(product)"
           class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded mb-2 w-full"
         >
           Mua Ngay
@@ -135,6 +136,10 @@ export default {
     addToCart(item) {
       this.$store.dispatch("addToCart", item);
     },
+    GoToOrder(){
+      this.$store.dispatch("addToCart", item);
+      this.$router.replace("/order");
+    }
   },
 };
 </script>
