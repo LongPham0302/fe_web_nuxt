@@ -1,5 +1,10 @@
 <template>
-  <div id="app" class="bg-white p-4">
+  <div id="app" class="bg-white p-4 flex flex-col items-end">
+    <select class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5 mb-4 outline-none w-60 right" @change="handleChangePrice">
+      <option value="" selected>Theo thứ tự phổ biến</option>
+      <option value="asc">Thứ tự theo giá: thấp đến cao</option>
+      <option value="desc">Thứ tự theo giá: cao xuống thấp</option>
+    </select>
     <div
       class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
     >
@@ -48,7 +53,26 @@ export default {
     },
   },
   methods: {
+    
+    async handleChangePrice(e) {
+      let selectedValue = e.target.value;
+      console.log(this.routeQuery);
+      if(selectedValue === "asc") {
+        this.routeQuery.sort = "asc"
+      }else if(selectedValue === "desc") {
+        this.routeQuery.sort = "desc"
+      }else {
+        delete this.routeQuery.sort;
+      }
+      const { data } = await this.$store.dispatch(
+        "paginateProducts",
+        this.routeQuery
+      );
+      this.products = data.products;
+    },
+
     async fetchProducts() {
+      console.log("routeQuery", this.routeQuery);
       try {
         const { data } = await this.$store.dispatch(
           "paginateProducts",
