@@ -2,7 +2,7 @@
 import axiosInstance from "@plugins/axios";
 
 export default {
-  async getlistCategories({ commit }) {
+  async getListCategories({ commit }) {
     try {
       const response = await axiosInstance.get("/categories/");
       if (response.status === 200) {
@@ -24,10 +24,11 @@ export default {
     }
   },
 
-  async getlistProduct({ commit }, id) {
+  async getListProductsByIdCategory({ commit }, id) {
     try {
       const response = await axiosInstance.get("/product/category/" + id);
       if (response.status === 200) {
+        // commit("SET_LIST_PRODUCT", response.data);
         return response.data;
       }
     } catch (error) {
@@ -106,7 +107,8 @@ export default {
   },
 
   async paginateProducts({ commit }, data) {
-    const { page, pageSize, searchTerm, minPrice, maxPrice, category } = data;
+    const { page, pageSize, searchTerm, minPrice, maxPrice, category, sort } =
+      data;
     try {
       const reuslt = await axiosInstance.get("/product", {
         params: {
@@ -116,6 +118,7 @@ export default {
           minPrice: minPrice,
           maxPrice: maxPrice,
           category: category,
+          sort: sort,
         },
       });
       if (reuslt.status === 200) {

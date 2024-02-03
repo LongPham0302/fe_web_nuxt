@@ -1,10 +1,6 @@
 <template>
-  <div class="flex-col">
-    <div
-      style="margin-top: 50px"
-      v-for="(item, index) in getListCategories"
-      :key="index"
-    >
+  <div class="mb-5">
+    <div v-for="(item, index) in getListCategories" :key="index">
       <ProductComponent :id="item._id" :name="item.name" />
     </div>
   </div>
@@ -20,7 +16,7 @@ export default {
     ProductComponent,
   },
   created() {
-    this.$store.dispatch("getlistCategories");
+    this.$store.dispatch("getListCategories");
   },
   computed: {
     ...mapGetters(["getListCategories"]),
@@ -29,6 +25,7 @@ export default {
   data() {
     return {
       id: null,
+      productData: []
     };
   },
 };

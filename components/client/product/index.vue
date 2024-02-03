@@ -6,14 +6,10 @@
       </div>
       <div class="triangle-right"></div>
     </div>
-    <div
-      class="mx-auto w-3/4 mt-5 mb-5"
-      v-if="listProduct && listProduct.length > 0"
-    >
-      <VueSlickCarousel v-bind="settings">
-        <div
-          v-show="listProduct"
-          v-for="product in listProduct"
+    <div class="mx-auto w-3/4 mt-5 mb-5">
+      <VueSlickCarousel v-if="this.productData.length > 0" v-bind="settings">
+        <div 
+          v-for="product in this.productData" 
           :key="product._id"
           @click="goToInfoProduct(product._id)"
           class="p-3"
@@ -66,6 +62,11 @@ export default {
       default: "",
     },
   },
+  created() {
+    this.$store.dispatch("getListProductsByIdCategory", this.id).then(data => {
+      this.productData = data;
+    });
+  },
   data() {
     return {
       settings: {
@@ -79,13 +80,8 @@ export default {
         pauseOnFocus: true,
         pauseOnHover: true,
       },
-      listProduct: null,
+      productData: []
     };
-  },
-  created() {
-    this.$store
-      .dispatch("getlistProduct", this.id)
-      .then((res) => (this.listProduct = res));
   },
   methods: {
     goToInfoProduct(id) {
