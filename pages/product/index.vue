@@ -1,6 +1,6 @@
 <template>
   <div class="mb-5">
-    <div v-for="(item, index) in getListCategories" :key="index">
+    <div v-for="(item, index) in getListCategory" :key="index">
       <ProductComponent :id="item._id" :name="item.name" />
     </div>
   </div>
@@ -16,10 +16,10 @@ export default {
     ProductComponent,
   },
   created() {
-    this.$store.dispatch("getListCategories");
+    this.$store.dispatch("getListCategory");
   },
   computed: {
-    ...mapGetters(["getListCategories"]),
+    ...mapGetters(["getListCategory"]),
   },
 
   data() {

@@ -1,21 +1,24 @@
 <template>
   <div id="app" class="w-3/4 mx-auto mt-5" v-if="getListHeader">
     <div
-      class="container mx-auto px-4 py-2 flex items-center justify-between"
+      class="container mx-auto px-4 py-2 flex items-center justify-between h-24 mb-5"
       style="max-width: 1200px"
     >
-      <div class="flex items-center space-x-4">
-        <img
+      <div class="flex items-center h-24">
+        <div class="transform">
+          <img
           alt="Company logo with red and grey text 'THAIHOC COMPUTER - CAMERA - GAMING'"
           src="https://maytinhninhbinh.com/wp-content/uploads/2022/06/logo.png"
-          width="100"
+          width="300"
           height="50"
         />
+        </div>
+    
       </div>
       <div class="flex-1 px-4">
         <div class="relative">
           <input
-            class="border-2 border-gray-500 w-1/2 pl-4 pr-10 py-1"
+            class="border-2 border-gray-500 w-full pl-4 pr-10 py-1"
             placeholder="Tìm kiếm..."
             type="text"
             v-model="searchTerm"
@@ -23,9 +26,9 @@
           />
           <button
             @click="search"
-            class="absolute right-0 top-0 mr-1 text-black-600 rounded p-1"
+            class="absolute right-0 top-0 bg-red-600 h-full p-2"
           >
-            <i class="fas fa-search"></i>
+            <i class="fas fa-search text-white"></i>
           </button>
         </div>
       </div>

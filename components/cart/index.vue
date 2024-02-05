@@ -1,7 +1,7 @@
 <template>
   <div class="flex cursor-pointer p-2" @click="goToCart">
     <span class="text-red-600 text-sm font-bold">
-      Giỏ Hàng / {{ loading ? "Đang tải..." : countProduct }} đ
+      Giỏ Hàng / {{ loading ? 0 : countProduct }} đ
     </span>
   </div>
 </template>

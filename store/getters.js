@@ -1,5 +1,5 @@
 export default {
-    getListCategories: state => {
+    getListCategory: state => {
         return state.categories
     },
     getListProduct: state => {

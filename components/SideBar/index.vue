@@ -2,7 +2,7 @@
   <div class="p-4">
     <ul>
       <li
-        v-for="item in getListCategories"
+        v-for="item in getListCategory"
         :key="item.id"
         class="mb-2 cursor-pointer"
         @click="goToProductCategory(item.name)"
@@ -33,12 +33,9 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "Sidebar", // Thêm trường name
-  created() {
-    this.$store.dispatch("getlistCategories");
-  },
+  name: "Sidebar", 
   computed: {
-    ...mapGetters(["getListCategories"]),
+    ...mapGetters(["getListCategory"]),
   },
   data() {
     return {};

@@ -8,14 +8,14 @@
     </div>
     <div class="mx-auto w-3/4 mt-5 mb-5">
       <VueSlickCarousel v-if="this.productData.length > 0" v-bind="settings">
-        <div 
-          v-for="product in this.productData" 
+        <div
+          v-for="product in this.productData"
           :key="product._id"
           @click="goToInfoProduct(product._id)"
           class="p-3"
         >
           <div
-            class="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
+            class="relative aspect-h-1 aspect-w-1 overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80"
           >
             <img
               :src="
@@ -24,8 +24,18 @@
                   : 'https://cdn.tuoitre.vn/zoom/700_700/471584752817336320/2023/6/13/03-16866569815101672545124-16-10-534-1000-crop-16866570358101851702408.jpg'
               "
               :alt="product.imageAlt"
-              class="h-full w-full object-cover object-center lg:h-full lg:w-full"
+              class="object-cover object-center lg:h-full lg:w-full"
             />
+            123
+            <div
+              class="absolute top-0 left-0 w-full h-full opacity-0 hover:opacity-100 transition-opacity duration-500 flex flex-col"
+            >
+              <h1
+                class="h-1/6 text-white text-center text-4xl font-bold bg-red-600 mt-auto"
+              >
+                Quick View
+              </h1>
+            </div>
           </div>
           <div class="mt-4">
             <div>
@@ -63,9 +73,11 @@ export default {
     },
   },
   created() {
-    this.$store.dispatch("getListProductsByIdCategory", this.id).then(data => {
-      this.productData = data;
-    });
+    this.$store
+      .dispatch("getListProductsByIdCategory", this.id)
+      .then((data) => {
+        this.productData = data;
+      });
   },
   data() {
     return {
@@ -80,7 +92,7 @@ export default {
         pauseOnFocus: true,
         pauseOnHover: true,
       },
-      productData: []
+      productData: [],
     };
   },
   methods: {

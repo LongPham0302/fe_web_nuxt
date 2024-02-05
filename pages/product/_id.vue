@@ -136,7 +136,7 @@ export default {
     addToCart(item) {
       this.$store.dispatch("addToCart", item);
     },
-    GoToOrder(){
+    GoToOrder(item){
       this.$store.dispatch("addToCart", item);
       this.$router.replace("/order");
     }

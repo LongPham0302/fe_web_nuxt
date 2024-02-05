@@ -2,7 +2,7 @@
 import axiosInstance from "@plugins/axios";
 
 export default {
-  async getListCategories({ commit }) {
+  async getListCategory({ commit }) {
     try {
       const response = await axiosInstance.get("/categories/");
       if (response.status === 200) {
@@ -110,7 +110,7 @@ export default {
     const { page, pageSize, searchTerm, minPrice, maxPrice, category, sort } =
       data;
     try {
-      const reuslt = await axiosInstance.get("/product", {
+      const result = await axiosInstance.get("/product", {
         params: {
           searchTerm: searchTerm,
           page: page,
@@ -121,8 +121,17 @@ export default {
           sort: sort,
         },
       });
-      if (reuslt.status === 200) {
-        return reuslt;
+      if (result.status === 200) {
+        return result;
+      }
+    } catch (error) {}
+  },
+
+  async getFotter({ commit }) {
+    try {
+      const result = await axiosInstance.get("/footer");
+      if (result.status === 200) {
+        return result;
       }
     } catch (error) {}
   },
