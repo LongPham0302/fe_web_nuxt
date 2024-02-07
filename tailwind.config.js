@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-import { iconsPlugin, getIconCollections } from "@egoist/tailwindcss-icons"
+import { iconsPlugin, getIconCollections } from "@egoist/tailwindcss-icons";
 module.exports = {
   content: [
     "./components/**/*.{js,vue,ts}",
@@ -10,7 +10,11 @@ module.exports = {
     "./error.vue",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontSize: {
+        xxs: "0.625rem",
+      },
+    },
   },
   plugins: [
     iconsPlugin({
@@ -19,4 +23,4 @@ module.exports = {
       collections: getIconCollections(["mdi", "lucide"]),
     }),
   ],
-}
+};

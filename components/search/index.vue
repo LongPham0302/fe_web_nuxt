@@ -5,7 +5,7 @@
       style="max-width: 1200px"
     >
       <div class="flex items-center h-24">
-        <div class="transform">
+        <div class="transform cursor-pointer" @click="replaceHome">
           <img
           alt="Company logo with red and grey text 'THAIHOC COMPUTER - CAMERA - GAMING'"
           src="https://maytinhninhbinh.com/wp-content/uploads/2022/06/logo.png"
@@ -64,6 +64,9 @@ export default {
     };
   },
   methods: {
+    replaceHome() {
+      this.$router.replace("/");
+    },
     handleEnterKey() {
       // Xử lý khi nhấn Enter
       this.search();

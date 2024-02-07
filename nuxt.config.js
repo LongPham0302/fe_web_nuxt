@@ -16,6 +16,7 @@ module.exports = {
 
   publicRuntimeConfig: {
     apiUrl: process.env.apiUrl,
+    JWT_KEY: process.env.JWT_KEY,
   },
   /*
    ** Headers of the page

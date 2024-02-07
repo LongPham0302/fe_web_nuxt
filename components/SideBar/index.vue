@@ -8,7 +8,7 @@
         @click="goToProductCategory(item.name)"
       >
         <div class="flex items-cnter relative text-red-600">
-          {{ item.name }}
+          {{ convertStr(item.name) }}
           <svg
             width="3"
             height="24"
@@ -31,6 +31,7 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { convertStringUpperCase } from "../../utils/strToUpperCase";
 
 export default {
   name: "Sidebar", 
@@ -41,6 +42,9 @@ export default {
     return {};
   },
   methods: {
+    convertStr(str) {
+      return convertStringUpperCase(str);
+    },
     goToProductCategory(nameCategory) {
       // Xử lý tìm kiếm
       this.$router.push({

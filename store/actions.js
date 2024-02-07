@@ -1,5 +1,6 @@
 // actions.js
 import axiosInstance from "@plugins/axios";
+import jwt from "jsonwebtoken";
 
 export default {
   async getListCategory({ commit }) {
@@ -77,11 +78,20 @@ export default {
     } catch (error) {}
   },
 
-  async logIn({ commit, state }, data) {
+  async signIn({ commit, state }, data) {
     try {
       const reuslt = await axiosInstance.post("/auth/login", data);
       if (reuslt.status === 201) {
-        localStorage.setItem("key", JSON.stringify(reuslt.data));
+        localStorage.setItem("keyAuth", JSON.stringify(reuslt.data));
+      }
+    } catch (error) {}
+  },
+
+  async signUp({ commit, state }, data) {
+    try {
+      const reuslt = await axiosInstance.post("/auth/register", data);
+      if (reuslt.status === 201) {
+        localStorage.setItem("keyAuth", JSON.stringify(reuslt.data));
       }
     } catch (error) {}
   },
@@ -132,6 +142,23 @@ export default {
       const result = await axiosInstance.get("/footer");
       if (result.status === 200) {
         return result;
+      }
+    } catch (error) {}
+  },
+
+  async getInfoUser({ commit }) {
+    try {
+      const infoUser = localStorage.getItem("keyAuth");
+
+      if (infoUser) {
+        const { access_token } = JSON.parse(infoUser);
+        const privateKey = this.$config.JWT_KEY;
+
+        console.log({ access_token, privateKey });
+
+        const infoUser = await jwt.verify(access_token, privateKey);
+
+        console.log(infoUser);
       }
     } catch (error) {}
   },

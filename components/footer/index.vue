@@ -41,7 +41,6 @@ export default {
   },
   created() {
     this.$store.dispatch("getFotter").then((res) => {
-      console.log("res", res.data[0]);
       this.callApi = false;
       (this.menu_1 = res.data[0].companyLocation),
         (this.menu_2 = res.data[0].policyRegulations),

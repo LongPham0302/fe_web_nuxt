@@ -15,7 +15,7 @@
           class="px-4 py-2 flex items-center"
           @click="goToListProduct(item)"
         >
-          <span>{{ item.name }}</span>
+          <span>{{ convertStr(item.name) }}</span>
           <i class="fas fa-chevron-right ml-2 mt-1"></i>
         </button>
       </div>
@@ -40,6 +40,7 @@ import sideBar from "@components/sideBar";
 import { mapGetters } from "vuex";
 import mainBanner from "@components/mainBanner";
 import bannerBottom from "@components/bannerBottom";
+import { convertStringUpperCase } from "../utils/strToUpperCase";
 
 export default {
   name: "MyComponent",
@@ -52,7 +53,13 @@ export default {
   computed: {
     ...mapGetters(["getListCategory"]),
   },
+  created() {
+    this.$store.dispatch("getInfoUser");
+  },
   methods: {
+    convertStr(str) {
+      return convertStringUpperCase(str);
+    },
     goToListProduct(item) {
       this.$router.push({
         path: "/productSearch",
