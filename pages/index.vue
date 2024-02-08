@@ -31,6 +31,7 @@
         <ProductHome />
       </div>
     </div>
+    <Loading />
   </div>
 </template>
 
@@ -40,6 +41,7 @@ import sideBar from "@components/sideBar";
 import { mapGetters } from "vuex";
 import mainBanner from "@components/mainBanner";
 import bannerBottom from "@components/bannerBottom";
+import Loading from "@pages/loading/index.vue";
 
 export default {
   name: "MyComponent",
@@ -48,6 +50,7 @@ export default {
     sideBar,
     mainBanner,
     bannerBottom,
+    Loading
   },
   computed: {
     ...mapGetters(["getListCategory"]),

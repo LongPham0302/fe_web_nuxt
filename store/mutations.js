@@ -8,4 +8,7 @@ export default {
   SET_HEADER(state, newValue) {
     state.listHeader = newValue;
   },
+  SET_LOADING(state, payload) {
+    state.loading = payload; // Cập nhật trạng thái loading
+  },
 };
