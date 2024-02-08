@@ -193,6 +193,7 @@ export default {
         totalPrice: this.cartItems.totalPrice,
         notes: this.orderNotes,
         transferType: this.transferType,
+        nameUser: this.name,
       };
       this.$store.dispatch("CreateOrder", orderData);
       this.clear();
