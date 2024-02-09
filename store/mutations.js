@@ -11,4 +11,12 @@ export default {
   SET_LOADING(state, payload) {
     state.loading = payload; // Cập nhật trạng thái loading
   },
+
+  SET_LIST_PRODUCT(state, newValue) {
+    state.listProduct = newValue;
+  },
+
+  SET_MAIN_BANNER(state, newValue) {
+    state.banner = newValue;
+  },
 };

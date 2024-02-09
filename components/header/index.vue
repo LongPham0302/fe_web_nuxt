@@ -2,6 +2,9 @@
   <div class="bg-red-600 p-2" v-if="getListHeader">
     <div class="flex mx-auto w-2/3 relative">
       <div class="flex items-center space-x-4 text-white">
+        <div>
+          <img :src="getImageUrl(getListHeader.image)" alt="">
+        </div>
         <div class="text-sm font-bold">
           {{ getListHeader.companyName }}
         </div>
@@ -32,6 +35,9 @@ export default {
   methods: {
     goToHome() {
       this.$router.replace("/");
+    },
+    getImageUrl(imageName) {
+      return `${this.$config.apiUrl}/${imageName}`;
     },
   },
 };

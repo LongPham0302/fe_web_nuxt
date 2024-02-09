@@ -174,4 +174,16 @@ export default {
       commit("SET_LOADING", false); // Tắt trạng thái loading sau khi nhận được kết quả từ API
     }
   },
+
+  //banner
+  async getMainBanner({ commit }) {
+    try {
+      const result = await axiosInstance.get("/banners");
+      if (result.status === 200) {
+        commit("SET_MAIN_BANNER", result.data);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
 };

@@ -26,7 +26,6 @@
         <sideBar />
         <mainBanner />
       </div>
-      <bannerBottom />
       <div class="mt-5">
         <ProductHome />
       </div>
@@ -40,7 +39,6 @@ import ProductHome from "@pages/product";
 import sideBar from "@components/sideBar";
 import { mapGetters } from "vuex";
 import mainBanner from "@components/mainBanner";
-import bannerBottom from "@components/bannerBottom";
 import Loading from "@pages/loading/index.vue";
 
 export default {
@@ -49,8 +47,7 @@ export default {
     ProductHome,
     sideBar,
     mainBanner,
-    bannerBottom,
-    Loading
+    Loading,
   },
   computed: {
     ...mapGetters(["getListCategory"]),
@@ -61,7 +58,7 @@ export default {
         path: "/productSearch",
         query: { category: item.name },
       });
-    }
+    },
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white text-gray-700" id="footer" v-if="callApi">
     <div class="container mx-auto px-4 py-8">
-      <div class="grid grid-cols-4 gap-8">
+      <div class="flex justify-center space-x-8">
         <!-- Support Column -->
         <div>
           <h3 class="font-bold text-lg mb-3">Tổng đài hỗ trợ miễn phí</h3>
@@ -24,6 +24,8 @@
           </p>
         </div>
         <!-- Connect Column -->
+        <button v-if="showScrollButton" @click="scrollToTop" class="fixed bottom-20 right-0 z-50 bg-blue-500 text-white px-6 py-3 rounded-full text-lg shadow-lg cursor-pointer transition-colors duration-300">Lên đầu trang</button>
+
       </div>
     </div>
   </div>
@@ -37,11 +39,11 @@ export default {
       menu_2: null,
       menu_3: null,
       callApi: false,
+      showScrollButton:false
     };
   },
   created() {
     this.$store.dispatch("getFotter").then((res) => {
-      console.log("res", res.data[0]);
       this.callApi = false;
       (this.menu_1 = res.data[0].companyLocation),
         (this.menu_2 = res.data[0].policyRegulations),
@@ -57,7 +59,7 @@ export default {
       });
     },
     handleScroll() {
-      this.showScrollButton = window.scrollY > 100;
+      this.showScrollButton = window.scrollY >600;
     },
   },
   mounted() {

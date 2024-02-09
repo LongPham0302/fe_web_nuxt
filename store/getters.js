@@ -10,5 +10,8 @@ export default {
     },
     getListHeader: state => {
         return state.listHeader
+    },
+    getlistBanner: state => {
+        return state.banner
     }
 }
