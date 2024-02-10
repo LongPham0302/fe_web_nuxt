@@ -3,7 +3,7 @@
     <div class="flex mx-auto w-2/3 relative">
       <div class="flex items-center space-x-4 text-white">
         <div>
-          <img :src="getImageUrl(getListHeader.image)" alt="">
+          <img :src="getImageUrl(getListHeader.image)" alt="" style="width: 100px;height: 50px; object-fit: cover; object-position: center;">
         </div>
         <div class="text-sm font-bold">
           {{ getListHeader.companyName }}

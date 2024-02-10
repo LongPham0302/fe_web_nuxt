@@ -50,6 +50,7 @@
               Số điện thoại *
             </label>
             <input
+              @blur="checkPhoneNumber"
               class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               id="phone"
               type="text"
@@ -59,6 +60,9 @@
             />
             <span v-if="!phone" class="text-red-500 text-sm"
               >Vui lòng nhập số điện thoại</span
+            >
+            <span v-if="!isPhoneNumberValid" class="text-red-500 text-sm"
+              >Số điện thoại không hợp lệ</span
             >
           </div>
         </div>
@@ -175,10 +179,11 @@ export default {
       phone: "",
       orderNotes: "",
       transferType: null,
+      isPhoneNumberValid: true,
     };
   },
   methods: {
-    HandleOrder() {
+    async HandleOrder() {
       if (!this.name || !this.address || !this.phone || !this.transferType) {
         alert("Vui lòng nhập đầy đủ thông tin");
         return;
@@ -195,7 +200,7 @@ export default {
         transferType: this.transferType,
         nameUser: this.name,
       };
-      this.$store.dispatch("CreateOrder", orderData);
+      await this.$store.dispatch("CreateOrder", orderData);
       this.clear();
     },
     clear() {
@@ -205,6 +210,17 @@ export default {
       this.phone = "";
       this.orderNotes = "";
       this.transferType = null;
+    },
+    checkPhoneNumber() {
+      // Biểu thức chính quy kiểm tra số điện thoại Việt Nam
+      const phoneNumberPattern = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+
+      // Kiểm tra số điện thoại nhập vào với biểu thức chính quy
+      if (!phoneNumberPattern.test(this.phone)) {
+        this.isPhoneNumberValid = false;
+      } else {
+        this.isPhoneNumberValid = true;
+      }
     },
   },
 };
