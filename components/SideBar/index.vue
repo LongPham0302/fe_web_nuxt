@@ -33,7 +33,7 @@
 import { mapGetters } from "vuex";
 
 export default {
-  name: "Sidebar", 
+  name: "SidebarComponent", 
   computed: {
     ...mapGetters(["getListCategory"]),
   },
