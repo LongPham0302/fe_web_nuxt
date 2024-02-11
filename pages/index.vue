@@ -22,7 +22,6 @@
     </div>
     <div class="container w-3/4 bg-white mx-auto">
       <div class="grid grid-cols-4 gap-4 mt-2">
-        <sideBar />
         <mainBanner />
       </div>
       <div class="mt-5">
@@ -35,7 +34,6 @@
 
 <script>
 import ProductHome from "@pages/product";
-import sideBar from "@components/sidebar";
 import { mapGetters } from "vuex";
 import mainBanner from "@components/mainBanner";
 import Loading from "@pages/loading/index.vue";
@@ -44,7 +42,6 @@ export default {
   name: "MyComponent",
   components: {
     ProductHome,
-    sideBar,
     mainBanner,
     Loading,
   },
