@@ -1,7 +1,5 @@
 <template>
-  <div class="col-span-3 grid grid-cols-3 gap-4">
-    <!-- Side banner left -->
-
+  <div class="grid grid-cols-4 gap-4 mt-2">
     <div class="p-4">
       <ul>
         <li
@@ -30,30 +28,35 @@
         </li>
       </ul>
     </div>
-    <!-- Main banner -->
-    <div class="col-span-2">
-      <img
-        :src="getImageUrl(mainBanner)"
-        :alt="mainBanner"
-        class="w-full h-2/3 rounded-lg"
-        style="object-fit: cover"
-      />
-    </div>
+    <div class="col-span-3 grid grid-cols-3 gap-4">
+      <!-- Side banner left -->
 
-    <!-- Side banners -->
-    <div class="flex flex-col space-y-2">
-      <div v-for="banner in sideBanners" :key="banner.alt" class="">
+      <!-- Main banner -->
+      <div class="col-span-2">
         <img
-          :src="getImageUrl(banner)"
-          :alt="banner"
-          class="w-full h-auto rounded-lg"
-          style="max-width: 300px; max-height: 200px; object-fit: cover"
+          :src="getImageUrl(mainBanner)"
+          :alt="mainBanner"
+          class="w-full h-2/3 rounded-lg"
+          style="object-fit: cover"
         />
+      </div>
+
+      <!-- Side banners -->
+      <div class="flex flex-col space-y-2">
+        <div v-for="banner in sideBanners" :key="banner.alt" class="">
+          <img
+            :src="getImageUrl(banner)"
+            :alt="banner"
+            class="w-full h-auto rounded-lg"
+            style="max-width: 300px; max-height: 200px; object-fit: cover"
+          />
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
+import { mapGetters } from "vuex";
 export default {
   name: "mainBannerComponents",
   data() {
@@ -63,6 +66,8 @@ export default {
     this.$store.dispatch("getMainBanner");
   },
   computed: {
+    ...mapGetters(["getListCategory"]),
+
     mainBanner() {
       return this.$store.state.banner &&
         this.$store.state.banner[0] &&
@@ -77,7 +82,6 @@ export default {
         ? this.$store.state.banner[0].image
         : null;
     },
-    ...mapGetters(["getListCategory"]),
   },
   methods: {
     getImageUrl(imageName) {
