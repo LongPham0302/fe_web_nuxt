@@ -22,7 +22,7 @@
     </div>
     <div class="container w-3/4 bg-white mx-auto">
       <div class="grid grid-cols-4 gap-4 mt-2">
-        <sideBar />
+        <!-- <sideBar /> -->
         <mainBanner />
       </div>
       <div class="mt-5">
