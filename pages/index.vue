@@ -22,7 +22,6 @@
     </div>
     <div class="container w-3/4 bg-white mx-auto">
       <div class="grid grid-cols-4 gap-4 mt-2">
-        <!-- Sidebar -->
         <sideBar />
         <mainBanner />
       </div>
@@ -36,7 +35,7 @@
 
 <script>
 import ProductHome from "@pages/product";
-import sideBar from "../components/sideBar/index.vue";
+import sideBar from "@components/sidebar";
 import { mapGetters } from "vuex";
 import mainBanner from "@components/mainBanner";
 import Loading from "@pages/loading/index.vue";
