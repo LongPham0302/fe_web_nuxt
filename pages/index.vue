@@ -36,7 +36,7 @@
 
 <script>
 import ProductHome from "@pages/product";
-import sideBar from "../components/sideBar";
+import sideBar from "../components/sideBar/index.vue";
 import { mapGetters } from "vuex";
 import mainBanner from "@components/mainBanner";
 import Loading from "@pages/loading/index.vue";
