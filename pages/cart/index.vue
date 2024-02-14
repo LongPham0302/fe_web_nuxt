@@ -36,6 +36,8 @@
 
 <script>
 import { mapGetters } from "vuex";
+import { mapState } from "vuex";
+
 import CartItem from "@/components/cart/CartItem"; // Đổi đường dẫn tùy vào cấu trúc dự án của bạn
 
 export default {
@@ -45,6 +47,8 @@ export default {
   },
   computed: {
     ...mapGetters(["getListCart"]),
+    ...mapState(["orderStatus"]),
+
     hasCartItems() {
       return this.cartItems && this.cartItems.items.length > 0;
     },
@@ -63,6 +67,17 @@ export default {
   methods: {
     goToOrder() {
       this.$router.push("/order");
+    },
+    loadData() {
+      const existingRequestID = localStorage.getItem("requestID");
+      this.$store.dispatch("getListCart", existingRequestID).then((res) => {
+        this.cartItems = res[0];
+      });
+    },
+  },
+  watch: {
+    orderStatus() {
+      this.loadData();
     },
   },
 };

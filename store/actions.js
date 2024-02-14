@@ -69,10 +69,11 @@ export default {
             id: product._id,
             name: product.name,
             price: product.price,
-            count: 1,
+            count: product.count || 1,
           },
         ],
         image: product.images[0],
+        updateCart: false || product.updateCart,
       };
 
       const response = await axiosInstance.post("/cart", cartItem);
@@ -82,6 +83,26 @@ export default {
       // Bạn có thể cần cập nhật mutation để xử lý response.data
     } catch (error) {
       console.error(error);
+    } finally {
+      commit("SET_LOADING", false); // Tắt trạng thái loading sau khi nhận được kết quả từ API
+    }
+  },
+
+  async DeleteCart({ commit, state }, productItem) {
+    try {
+      const existingRequestID = localStorage.getItem("requestID");
+      commit("SET_LOADING", true); // Bật trạng thái loading trước khi gọi API
+      let data = {
+        user: existingRequestID,
+        name: productItem.name,
+      };
+      const reuslt = await axiosInstance.post("/cart/remove", data);
+      console.log(reuslt);
+      if (reuslt.status === 201) {
+        commit("SET_ORDER_STATUS", !state.orderStatus);
+      }
+    } catch (error) {
+      console.log(error);
     } finally {
       commit("SET_LOADING", false); // Tắt trạng thái loading sau khi nhận được kết quả từ API
     }
@@ -185,5 +206,5 @@ export default {
     } catch (error) {
       console.log(error);
     }
-  }
+  },
 };

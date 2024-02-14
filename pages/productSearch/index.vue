@@ -56,7 +56,6 @@ export default {
     
     async handleChangePrice(e) {
       let selectedValue = e.target.value;
-      console.log(this.routeQuery);
       if(selectedValue === "asc") {
         this.routeQuery.sort = "asc"
       }else if(selectedValue === "desc") {

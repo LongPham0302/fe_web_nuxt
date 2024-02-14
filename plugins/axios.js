@@ -1,8 +1,7 @@
 import axios from "axios";
-
-
+const apiUrl = process.env.apiUrl; // Lấy apiUrl từ biến môi trường
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:4000/",
+  baseURL: apiUrl,
   headers: {
     accept: "application/json",
   },
