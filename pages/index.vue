@@ -23,7 +23,7 @@
     <div class="container w-3/4 bg-white mx-auto">
         <mainBanner />
       </div>
-      <div class="mt-5">
+      <div class="mt-5 w-3/4 mx-auto">
         <ProductHome />
       </div>
     <Loading />

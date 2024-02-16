@@ -48,8 +48,7 @@
           <p>
             <span class="font-semibold">Tình trạng:</span>
             <span class="text-red-600">
-              {{ product.status ? "Còn hàng" : "Hết hàng" }} : Tại 47 Lương Văn
-              Thăng TP Ninh Bình</span
+              {{ product.status ? "Còn hàng" : "Hết hàng" }}</span
             >
           </p>
 
@@ -66,22 +65,8 @@
             </li>
           </ul>
         </div>
-        <div class="mb-4 p-4 border-2">
-          <h2 class="text-lg font-semibold mb-2 flex items-center">
-            <i class="fas fa-gift text-red-600 mr-2"></i>
-            QUÀ TẶNG/KHUYẾN MÃI
-          </h2>
-          <ul class="list-disc pl-5">
-            <li>Giao Hàng Lắp Đặt Trong 40Km</li>
-            <li>Miễn chuyển giao kỹ thuật</li>
-            <li>Tặng Phần Mềm Chấm Công 800.000đ</li>
-            <li>Giảm 10% Khi Mua Thêm Camera</li>
-            <li>Gửi COD Miễn Phí Toàn Quốc</li>
-            <li>Dùng Thử 1 Đổi 1 Trong Vòng 7 Ngày</li>
-          </ul>
-        </div>
         <button
-        @click="GoToOrder(product)"
+          @click="GoToOrder(product)"
           class="bg-red-700 hover:bg-red-800 text-white font-bold py-2 px-4 rounded mb-2 w-full"
         >
           Mua Ngay
@@ -136,10 +121,10 @@ export default {
     addToCart(item) {
       this.$store.dispatch("addToCart", item);
     },
-    GoToOrder(item){
+    GoToOrder(item) {
       this.$store.dispatch("addToCart", item);
       this.$router.replace("/order");
-    }
+    },
   },
 };
 </script>

@@ -7,13 +7,16 @@
       <div class="flex items-center h-24">
         <div class="transform">
           <img
-          alt="Company logo with red and grey text 'THAIHOC COMPUTER - CAMERA - GAMING'"
-          src="https://maytinhninhbinh.com/wp-content/uploads/2022/06/logo.png"
-          width="300"
-          height="50"
-        />
+            :src="getImageUrl(getListHeader.image)"
+            alt=""
+            style="
+              width: 100px;
+              height: 50px;
+              object-fit: cover;
+              object-position: center;
+            "
+          />
         </div>
-    
       </div>
       <div class="flex-1 px-4">
         <div class="relative">
@@ -37,9 +40,7 @@
           <i class="fas fa-phone-alt mr-1"></i>
           <span class="font-medium">{{ getListHeader.contactPhone }}</span>
         </div>
-        <div
-          class=" border-2 border-red-500 rounded"
-        >
+        <div class="border-2 border-red-500 rounded">
           <Cart />
         </div>
       </div>
@@ -75,6 +76,9 @@ export default {
         query: { searchTerm: this.searchTerm },
       });
       // Gọi hàm hoặc thực hiện logic tìm kiếm ở đây
+    },
+    getImageUrl(imageName) {
+      return `${this.$config.apiUrl}/${imageName}`;
     },
   },
 };
